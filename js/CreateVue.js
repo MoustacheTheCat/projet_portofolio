@@ -29,4 +29,4 @@ function createVue (){
     return mainVue;
 }
 
-export {createVue};
+createVue();
