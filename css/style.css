@@ -1,21 +1,35 @@
 /*----------------------------------------------Font---------------------------------------------------*/
+  
 
-/*
 @font-face {
-    font-family: "nom de la police";
-    src: url(../font/font_localisation);
-    font-weight: bold or normal;
+    font-family: "MartianMono Bold";
+    src: url(../font/MartianMono-Bold.ttf);
+    font-weight: bold;
 }  
+
+@font-face {
+    font-family: "MartianMono Regular";
+    src: url(../font/MartianMono-Regular.ttf);
+    font-weight: normal;
+} 
+
+
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-    font-family: "font_name";
-} 
-*/
+h6,
+label {
+    font-family:  "MartianMono Bold";
+}
+
+p,
+a {
+    font-family:  "MartianMono Regular";
+}
+
 
 /* --------------------------------------------------------------------------------------------------- */
 /*---------------------------------------CSS Global--------------------------------------------------- */
@@ -355,6 +369,7 @@ main {
 #send {
     justify-self: center;
     margin: 1.5rem 1rem 2rem 1rem;
+    font-family: "MartianMono Bold";
 }
 
 /* ---------------------------------------- Footer ------------------------------------------------------ */
