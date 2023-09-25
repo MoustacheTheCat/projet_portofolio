@@ -2,7 +2,7 @@ const urlImg = '/img/picture/';
 const nbArticle = 6;
 function createRealisation (){
     let vueArticle = document.getElementById('vue-article');
-    for (let a=0;a<nbArticle;a++){
+    for (let a=1;a<=nbArticle;a++){
         let article = document.createElement('article');
         article.setAttribute('class', 'overlay-image');
 
@@ -11,7 +11,7 @@ function createRealisation (){
         article.appendChild(linkVue);
 
         let picture = document.createElement('img');
-        picture.setAttribute('src', urlImg+'projet.jpg');
+        picture.setAttribute('src', urlImg+'projet-'+a+'.jpg');
         picture.setAttribute('alt', 'photo du projet');
         picture.setAttribute('class', 'image');
         linkVue.appendChild(picture);
@@ -23,7 +23,7 @@ function createRealisation (){
         let divH2 = document.createElement('div');
         divH2.setAttribute('class', 'text');
         let pictureTitle = document.createElement('h2');
-        let textPictureTitle = document.createTextNode('Projet');
+        let textPictureTitle = document.createTextNode('Projet '+ a);
         pictureTitle.appendChild(textPictureTitle);
         divH2.appendChild(pictureTitle);
         divNormal.appendChild(divH2);
