@@ -41,6 +41,7 @@ body {
     padding: 0;
     border: 0;
     height: 100%;
+    overflow-x: hidden;
     --russian:#020024;
     --navy:#090979;
     --summer:#1fb1e6;
@@ -63,6 +64,30 @@ a {
     width: 100%;
 }
 
+.group {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow-y: hidden;
+    justify-items: center;
+    width: 100%;
+}
+
+.group div {
+    grid-area: 1/1/2/2;
+}
+
+.front {
+    z-index: 2;
+    opacity: 1;
+}
+
+.background {
+    background-color: #1fb1e6;
+    opacity: 0.5;
+    z-index: 0;
+}
+
 /* ---------------------------------------- Header ------------------------------------------------------ */
 
 header {
@@ -81,7 +106,6 @@ header {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
-    z-index: 1;
 }
 
 .logo-perso:hover {
@@ -129,8 +153,14 @@ main {
 /* -------------------------------------------------------------------------------------------------------- */
 
 /* ---------------------------------------- Home(index.html) ---------------------------------------------- */
+.main-home {
+    display: grid;
+    grid-template-columns:1fr ;
+    grid-template-rows: repeat(2,auto);
+}
 
-.home {
+
+.div-home-img {
     background-image: url(../../img/picture/home-page.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -139,16 +169,21 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-area: 1/1/2/2;
 }
 
-.home h1 {
+.div-home-img h1 {
     color: aliceblue;
     text-shadow:  .2rem .2rem #1fb1e6;
 }
 
+.div-home-citation {
+    grid-area: 2/1/3/2;
+    margin: 2rem auto;
+    width: 100%;
+} 
+
 .div-citation {
-    background-color: #1fb1e6 ;
-    opacity: 0.5;
     display: flex;
     justify-content: center;
     margin: 2rem;
@@ -179,59 +214,63 @@ main {
     align-items: center;
     justify-self: center;
     justify-items: center;
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
 
 .main-about .div-title {
     grid-row: 1/2;
 }
 
-.div-bio,
-.div-comp,
-.div-picture-background,
-.div-picture {
-    margin: 1.5rem 0;
+
+.div-about {
+    margin: 3rem 0 3rem  0;
+    height: 80%;
+    justify-items: center;
+    align-items: center;
 }
-.div-picture-background {
-    justify-self: center;
-    height: 12rem;
-    width: 10rem;
+.picture {
     grid-column: 1/2;
-    grid-row: 2/3;
-    padding: 1rem;
-    background-color: #1fb1e6 ;
-    opacity: 0.5;
-    z-index: 0; 
+    grid-row: 3/4;  
+    
 }
 
+
+.div-bio,
+.div-comp,
 .div-picture {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    justify-self: center;
-    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .div-picture img {
-    height: 12rem;
-    width: 10rem;
+    height:80%;
+    width:80%;
+}
+.bio {
+    grid-row: 2/3;
+    grid-column: 1/2;
 }
 
-.div-bio {
-    grid-row: 3/4;
+.competance{
+    grid-row: 4/5;
+    grid-column: 1/2;
+    
 }
 
 .div-comp {
-    grid-row: 4/5;
     margin-bottom: 3rem;
 }
 
 .div-bio,
 .div-comp {
     text-align: justify;
-    background-color: #1fb1e6 ;
-    opacity: 0.5;
-    padding:0.5rem;
     color: aliceblue;
+    
+    
 }
 
 .div-bio h2,
@@ -242,10 +281,23 @@ main {
 .div-bio p,
 .div-comp ul li p  {
     font-size: 0.6rem;
+    
 }
 
-.div-bio p a {
+.div-bio p {
+    padding: 0 1rem;
+}
+
+#text-bio-bottom {
+    padding-bottom: 1rem;
+}
+
+.div-bio a {
+    font-size: 0.5rem;
+    font-style: italic;
     color:#020024 ;
+    padding: 0;
+    margin: 0;
 }
 .div-bio p a:hover {
     color: aliceblue ;
@@ -255,32 +307,61 @@ main {
 .list-comp {
     display: flex;
     flex-direction: row;
-    align-items: start;
-    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list-comp ul {
+    padding: 0 1rem;
 }
 
 /* ---------------------------------------- Realisation ------------------------------------------------------ */
 
 .main-realisation {
     margin: 0 1rem 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2,auto);
+    grid-gap: 2rem;
+    align-content: start;
 }
 
 .vue-arcticle {
+    grid-area: 2/1/3/2;
+    
+    height: 100%;
+    width: 100%;
+    margin: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.div-realisation {
+    height: 90%;
+    padding: 2.5rem 0;
+    margin: 2.5rem 0;
+    margin-bottom: 2rem;
+}
+
+.div-realisation-section {
     display: flex;
     justify-content: space-around;
+    align-items: start;
     flex-flow: row wrap;
-    background-color: #1fb1e6;
-    opacity: .5;
-    margin: 5rem;
-    padding: 2rem;
-
+    height: 100%;
+    min-width: 20rem;
+    width: 90%;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    
 }
 
 .overlay-image {
     position: relative;
-    width: 20rem;
+    width: 18rem;
     height: auto;
-    margin: 1rem;
+    z-index: 5;
+    margin: 1rem ;
+
 }
 
 .overlay-image .image {
@@ -481,14 +562,9 @@ footer {
         grid-column: 1/2;
     }
 
-    .home {
+    .div-home-img {
         height: 20rem;
     }  
-    
-    .div-bio,
-    .div-comp {
-        width: 15rem;
-    } 
     
     .main-vue {
         margin: 0 1rem;
@@ -500,23 +576,11 @@ footer {
     .div-description-vue {
         width: 14rem;
     }
+    
 }
 
 /* Screen min 321px and max 768px*/
-@media (min-width: 20.063rem) and (max-width: 48rem){
-    .div-bio,
-    .div-comp {
-        width: 18rem;
-        padding: 1.5rem 2.5rem;
-    } 
-    .list-comp {
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .list-comp ul {
-        padding: 0;
-    }
+@media (min-width: 20.063rem) and (max-width: 48rem){ 
 
     .div-comp h2,
     .div-bio h2 {
@@ -532,6 +596,7 @@ footer {
         padding: 0;
         margin: 0;
     }
+    
 
 }
 
@@ -547,7 +612,7 @@ footer {
         grid-column: 1/2;
     }
 
-    .home {
+    .div-home-img {
         height: 20rem;
     } 
     
@@ -563,6 +628,7 @@ footer {
     .div-description-vue {
         width: 18rem;
     }
+    
 } 
 
 /* Screen max 480px */
@@ -572,20 +638,15 @@ footer {
         width: 10rem;
     }
     
-    .div-picture  {
-        z-index: 2;
-    }
-
-    
-    
     .overlay-image {
         width: 14rem;
         height: 13.5rem;
     }
 
-    .vue-arcticle {
+    .vue-arcticle,
+    .vue-arcticle-background {
         margin: 2.5rem 0.5rem 4rem 0.5rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.5rem;
     }
 }
 
@@ -655,27 +716,9 @@ footer {
         grid-column: 1/3;
     }
 
-    .home {
+    .div-home-img {
         height: 32rem;
     }
-
-    .div-picture-background {
-        height: 16rem;
-        width: 12rem;
-        margin: 2rem;
-        padding: 2rem;
-        background-color: #1fb1e6 ;
-        opacity: 0.5;
-        z-index: 0;
-        filter:alpha(opacity=55); 
-        
-    }
-
-    .div-picture img {
-        height: 16rem;
-        width: 12rem;
-    }
-
     .main-vue {
         margin: 0 1.5rem;
     }
@@ -686,6 +729,7 @@ footer {
     .div-description-vue {
         width: 24rem;
     }
+
 } 
 
 /* Screen max 768px */
@@ -735,7 +779,7 @@ footer {
 
     #togle-logo span {
         display: block;
-        z-index: 2;
+        /* z-index: 2; */
         width: 1.5rem;
         height: 0.2rem;
         background-color: aliceblue;
@@ -771,8 +815,19 @@ footer {
         font-size: 4rem;
     }
 
-    .home {
+    .div-home-img {
         height: 40rem;
+    }
+
+
+    .div-home-citation {
+        width: 45rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .div-home-citation div {
+        padding: 1rem 2rem;
     }
 
     .main-about {
@@ -785,8 +840,48 @@ footer {
     }
 
     .div-title,
-    .div-comp {
+    .competance {
         grid-column: 1/3;
+    }
+
+    .picture,
+    .bio{
+        grid-row: 2/3;
+        height: 90%;
+        width: 80%;
+    }
+
+    .picture {
+        grid-column: 1/2;
+        margin-right: 3rem;
+    }
+    .bio {
+        grid-column: 2/3;
+        margin-left: 3rem;
+    }
+
+    .div-picture img {
+        height: 75%;
+        width: 75%;
+    }
+
+    .div-bio p {
+        padding: 0 2rem;
+        margin: 0 0 .7rem 0;
+    }
+
+    .div-bio p a {
+        font-size: 0.6rem;
+    }
+
+    .competance{
+        width: 90%;
+        grid-row: 3/4;
+        
+    }
+    
+    .list-comp {
+        width: 80%;
     }
 
     .div-title {
@@ -796,49 +891,7 @@ footer {
         align-items: center;
     }
 
-    .div-picture-background {
-        
-        grid-row: 2/3;
-        grid-column:1/2 ;
-        justify-self: start;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        background-color: #1fb1e6;
-        filter:alpha(opacity=55); 
-        opacity: .5;
-        z-index: 0;
-        
-    }
-    .div-picture{
-        justify-self: start;
-        grid-row: 2/3;
-        grid-column:1/2 ;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-    }
-    
-    .div-picture-background,
-    .div-picture{
-        margin-right: 3rem;
-    }
-
-    .div-bio {
-        justify-self: end;
-        grid-row: 2/3;
-        grid-column:2/3 ;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 2rem;
-        margin-left: 3rem;
-    }
-
-    .div-comp {
+    .div-comp-group {
         grid-row: 3/4;
         justify-self: center;
         width: 90%;
@@ -848,21 +901,14 @@ footer {
 
     .div-bio h2,
     .div-comp h2 {
+        font-size: 2rem;
         padding: 1rem 0 0 0;
     }
 
-    
-    .div-bio p a,
-    .div-bio p{
-        font-size: 0.7rem;
-    }
 
-    .div-comp ul li p {
-        font-size:0.8rem
-    }
- 
-    .list-comp {
-        justify-content: space-around;
+
+    .list-comp ul li p {
+        font-size:1rem
     }
     .list-comp ul {
         padding-left: 0;
@@ -927,12 +973,6 @@ footer {
         grid-column: 1/4;
     }
 
-    .div-picture-background,
-    .div-picture img,
-    .div-bio {
-        height: 18rem;
-        width: 14rem;
-    }
 
     .main-vue {
         margin: 0 2rem;
@@ -963,6 +1003,17 @@ footer {
 
     .div-bio p{
         font-size: 0.9rem;
+        padding: 1rem 2rem;
+    }
+
+    .div-bio p a {
+        font-size: 0.8rem;
+    }
+
+    .picture,
+    .bio{
+        height: 100%;
+        width: 100%;
     }
 }
 
@@ -978,12 +1029,7 @@ footer {
         grid-column: 1/5;
     }
 
-    .div-picture-background,
-    .div-picture img,
-    .div-bio {
-        height: 22rem;
-        width: 18rem;
-    }
+
 
     .main-vue {
         margin: 0 2.5rem;
@@ -999,15 +1045,7 @@ footer {
     }
 }
 
-/* Screen min 1224px */
-@media (min-width: 76.5rem) {
-    .div-picture-background,
-    .div-picture img,
-    .div-bio {
-        height: 24rem;
-        width: 20rem;
-    }
-}
+
 
 /* Screen min 1224px and max 1824px */
 @media (min-width: 76.5rem) and (max-width: 114rem){

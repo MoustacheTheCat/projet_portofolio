@@ -53,23 +53,29 @@
         <div class="div-title">
           <h1>Contacter moi </h1>
         </div>
-        <div class="div-description">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam harum tenetur velit veniam modi, sed nisi reprehenderit doloremque aut obcaecati adipisci impedit accusamus dicta doloribus, ea autem quis quisquam. Itaque dignissimos excepturi aliquid dolorum reprehenderit non id mollitia aliquam, soluta minima inventore illo accusantium, pariatur modi corporis tempora molestiae error.</p>
+        <div class="group">
+          <div class="div-description-background"></div>
+          <div class="div-description">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam harum tenetur velit veniam modi, sed nisi reprehenderit doloremque aut obcaecati adipisci impedit accusamus dicta doloribus, ea autem quis quisquam. Itaque dignissimos excepturi aliquid dolorum reprehenderit non id mollitia aliquam, soluta minima inventore illo accusantium, pariatur modi corporis tempora molestiae error.</p>
+          </div>
         </div>
-        <div class="div-form">
-          <form action="../php/mail.php" method="POST" id="form">
-            <label for="last-name" class="label-name last">Nom :</label>
-            <input type="text" name="last-name" id="last-name" autofocus>
-            <label for="first-name" class="label-name first">Prénom :</label>
-            <input type="text" name="first-name" id="first-name">
-            <label for="number" class="label-info numb">Téléphone</label>
-            <input type="text" name="number" id="number">
-            <label for="email" class="label-info mail">Email :</label>
-            <input type="email" name="email" id="email">
-            <label for="message" class="label-message">Votre message :</label>
-            <textarea id="message" cols="30" rows="10"></textarea>
-            <input type="submit" name="submit" value="Envoyer" id="send">
-          </form>
+        <div class="group">
+          <div class="div-form-background"></div>
+          <div class="div-form">
+            <form action="../php/mail.php" method="POST" id="form">
+              <label for="last-name" class="label-name last">Nom :</label>
+              <input type="text" name="last-name" id="last-name" autofocus>
+              <label for="first-name" class="label-name first">Prénom :</label>
+              <input type="text" name="first-name" id="first-name">
+              <label for="number" class="label-info numb">Téléphone</label>
+              <input type="text" name="number" id="number">
+              <label for="email" class="label-info mail">Email :</label>
+              <input type="email" name="email" id="email">
+              <label for="message" class="label-message">Votre message :</label>
+              <textarea id="message" cols="30" rows="10"></textarea>
+              <input type="submit" name="submit" value="Envoyer" id="send">
+            </form>
+          </div>
         </div>
       </main>
       <!-- <div> <? echo $email_data; > </div> -->

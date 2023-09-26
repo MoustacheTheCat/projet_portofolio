@@ -2,6 +2,18 @@ const urlImg = '/img/picture/';
 const nbArticle = 6;
 function createRealisation (){
     let vueArticle = document.getElementById('vue-article');
+    let divRealisationGroup = document.createElement('div');
+    divRealisationGroup.setAttribute('class', 'div-realisation group');
+    vueArticle.appendChild(divRealisationGroup);
+
+    let divRealisationSectionBackGround = document.createElement('div');
+    divRealisationSectionBackGround.setAttribute('class', 'div-realisation-section background');
+    divRealisationGroup.appendChild(divRealisationSectionBackGround);
+
+    let divRealisationSectionFront = document.createElement('div');
+    divRealisationSectionFront.setAttribute('class', 'div-realisation-section front');
+    divRealisationGroup.appendChild(divRealisationSectionFront);
+    
     for (let a=1;a<=nbArticle;a++){
         let article = document.createElement('article');
         article.setAttribute('class', 'overlay-image');
@@ -42,7 +54,7 @@ function createRealisation (){
         divTextHover.appendChild(textHover);
         divHover.appendChild(divTextHover);
         
-        vueArticle.appendChild(article);
+        divRealisationSectionFront.appendChild(article);
     }
     return vueArticle;
 }
