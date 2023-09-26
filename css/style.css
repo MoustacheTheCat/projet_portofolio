@@ -173,10 +173,42 @@ main {
 
 .main-about {
     color: #1fb1e6;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: repeat(4, auto);
     align-items: center;
-    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    margin: 0 2rem;
+}
+
+.main-about .div-title {
+    grid-row: 1/2;
+}
+
+.div-bio,
+.div-comp,
+.div-picture-background,
+.div-picture {
+    margin: 1.5rem 0;
+}
+.div-picture-background {
+    justify-self: center;
+    height: 12rem;
+    width: 10rem;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding: 1rem;
+    background-color: #1fb1e6 ;
+    opacity: 0.5;
+    z-index: 0; 
+}
+
+.div-picture {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    justify-self: center;
+    z-index: 2;
 }
 
 .div-picture img {
@@ -184,24 +216,32 @@ main {
     width: 10rem;
 }
 
+.div-bio {
+    grid-row: 3/4;
+}
+
+.div-comp {
+    grid-row: 4/5;
+    margin-bottom: 3rem;
+}
+
 .div-bio,
 .div-comp {
     text-align: justify;
-    margin: 0.5rem;
     background-color: #1fb1e6 ;
     opacity: 0.5;
-    margin: 2rem;
-    padding:0  2rem 2rem 2rem;
+    padding:0.5rem;
     color: aliceblue;
 }
 
 .div-bio h2,
 .div-comp h2 {
     text-align: center;
+    font-size: 1rem;
 }
 .div-bio p,
 .div-comp ul li p  {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 
 .div-bio p a {
@@ -217,7 +257,6 @@ main {
     flex-direction: row;
     align-items: start;
     justify-content: flex-start;
-    margin: .5rem;
 }
 
 /* ---------------------------------------- Realisation ------------------------------------------------------ */
@@ -444,7 +483,12 @@ footer {
 
     .home {
         height: 20rem;
-    }   
+    }  
+    
+    .div-bio,
+    .div-comp {
+        width: 15rem;
+    } 
     
     .main-vue {
         margin: 0 1rem;
@@ -456,6 +500,39 @@ footer {
     .div-description-vue {
         width: 14rem;
     }
+}
+
+/* Screen min 321px and max 768px*/
+@media (min-width: 20.063rem) and (max-width: 48rem){
+    .div-bio,
+    .div-comp {
+        width: 18rem;
+        padding: 1.5rem 2.5rem;
+    } 
+    .list-comp {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .list-comp ul {
+        padding: 0;
+    }
+
+    .div-comp h2,
+    .div-bio h2 {
+        font-size: 1.3rem;
+    }
+    .list-comp ul li p,
+    .div-bio p {
+        font-size: 0.8rem;
+    }
+
+    .div-bio p a {
+        font-size: 0.7rem;
+        padding: 0;
+        margin: 0;
+    }
+
 }
 
 /* Screen min 320px and max 480px */
@@ -490,85 +567,24 @@ footer {
 
 /* Screen max 480px */
 @media (max-width: 30rem){
-    .nav-menu {
-        padding: 0;
+    .div-picture-background {
+        height: 12rem;
+        width: 10rem;
     }
-
-    #menu-nav ul {
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-        list-style: none;
-        position: absolute;
-        left: 0;
-        top: 5rem;
-        height: auto;
-        max-height: 0%;
-        overflow: hidden;
-        transition: max-height 1s;
+    
+    .div-picture  {
         z-index: 2;
     }
 
-    #menu-nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 1em;
-        color: aliceblue;
-        background: #1fb1e6;
-        text-align: center;
-        text-decoration: none;
-    }
-
-    #togle-logo {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        display: inline-block;
-        cursor: pointer;
-        padding: 0.5rem 0.5rem;
-        color: aliceblue;
-        text-align: center;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    #togle-logo span {
-        display: block;
-        z-index: 2;
-        width: 1.5rem;
-        height: 0.2rem;
-        background-color: aliceblue;
-        margin: 0.32rem 0;
-        transition: 1s;
-    }
-
-    .div-nav input[type="checkbox"]#nav-check:checked ~ label #sp-1 {
-        transform: rotate(-45deg) translate(-0.25rem, 0.5rem);
-    }
-
-    .div-nav input[type="checkbox"]#nav-check:checked ~ label #sp-2 {
-        opacity: 0;
-    }
-
-    .div-nav input[type="checkbox"]#nav-check:checked ~ label #sp-3 {
-        transform: rotate(45deg) translate(-0.25rem, -0.5rem);
-    }
-
-    .div-nav input[type="checkbox"]#nav-check:checked ~ label {
-        padding: 0.5rem 0.5rem 0.5rem 0.2rem;
-    }
-
-    .div-nav input[type="checkbox"]:checked ~ #menu-nav ul {
-        max-height: 100%;
-        transition: max-height 1s;
-    }
+    
+    
     .overlay-image {
         width: 14rem;
         height: 13.5rem;
     }
 
     .vue-arcticle {
-        margin: 0.5rem;
+        margin: 2.5rem 0.5rem 4rem 0.5rem;
         padding: 0.5rem 1rem;
     }
 }
@@ -643,6 +659,18 @@ footer {
         height: 32rem;
     }
 
+    .div-picture-background {
+        height: 16rem;
+        width: 12rem;
+        margin: 2rem;
+        padding: 2rem;
+        background-color: #1fb1e6 ;
+        opacity: 0.5;
+        z-index: 0;
+        filter:alpha(opacity=55); 
+        
+    }
+
     .div-picture img {
         height: 16rem;
         width: 12rem;
@@ -662,8 +690,78 @@ footer {
 
 /* Screen max 768px */
 @media (max-width: 48rem) {
-    .list-comp {
-        flex-direction: column;
+
+    .nav-menu {
+        padding: 0;
+    }
+
+    #menu-nav ul {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 5rem;
+        height: auto;
+        max-height: 0%;
+        overflow: hidden;
+        transition: max-height 1s;
+        z-index: 2;
+    }
+
+    #menu-nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 1em;
+        color: aliceblue;
+        background: #1fb1e6;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    #togle-logo {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: inline-block;
+        cursor: pointer;
+        padding: 0.5rem 0.5rem;
+        color: aliceblue;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #togle-logo span {
+        display: block;
+        z-index: 2;
+        width: 1.5rem;
+        height: 0.2rem;
+        background-color: aliceblue;
+        margin: 0.32rem 0;
+        transition: 1s;
+    }
+
+    .div-nav input[type="checkbox"]#nav-check:checked ~ label #sp-1 {
+        transform: rotate(-45deg) translate(-0.25rem, 0.5rem);
+    }
+
+    .div-nav input[type="checkbox"]#nav-check:checked ~ label #sp-2 {
+        opacity: 0;
+    }
+
+    .div-nav input[type="checkbox"]#nav-check:checked ~ label #sp-3 {
+        transform: rotate(45deg) translate(-0.25rem, -0.5rem);
+    }
+
+    .div-nav input[type="checkbox"]#nav-check:checked ~ label {
+        padding: 0.5rem 0.5rem 0.5rem 0.2rem;
+    }
+
+    .div-nav input[type="checkbox"]:checked ~ #menu-nav ul {
+        max-height: 100%;
+        transition: max-height 1s;
     }
 } 
 
@@ -698,7 +796,22 @@ footer {
         align-items: center;
     }
 
-    .div-picture {
+    .div-picture-background {
+        
+        grid-row: 2/3;
+        grid-column:1/2 ;
+        justify-self: start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        background-color: #1fb1e6;
+        filter:alpha(opacity=55); 
+        opacity: .5;
+        z-index: 0;
+        
+    }
+    .div-picture{
         justify-self: start;
         grid-row: 2/3;
         grid-column:1/2 ;
@@ -706,9 +819,11 @@ footer {
         justify-content: center;
         align-items: center;
         padding: 2rem;
-        margin: 2rem;
-        background-color: #1fb1e6;
-        opacity: .5;
+    }
+    
+    .div-picture-background,
+    .div-picture{
+        margin-right: 3rem;
     }
 
     .div-bio {
@@ -720,16 +835,39 @@ footer {
         align-items: center;
         flex-direction: column;
         padding: 2rem;
+        margin-left: 3rem;
     }
 
     .div-comp {
         grid-row: 3/4;
         justify-self: center;
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    .div-bio p,
-    .div-comp ul li p  {
-    font-size: 1rem;
+    .div-bio h2,
+    .div-comp h2 {
+        padding: 1rem 0 0 0;
+    }
+
+    
+    .div-bio p a,
+    .div-bio p{
+        font-size: 0.7rem;
+    }
+
+    .div-comp ul li p {
+        font-size:0.8rem
+    }
+ 
+    .list-comp {
+        justify-content: space-around;
+    }
+    .list-comp ul {
+        padding-left: 0;
+        padding-bottom: 1rem;
+        
     }
 
     .div-form,
@@ -789,6 +927,7 @@ footer {
         grid-column: 1/4;
     }
 
+    .div-picture-background,
     .div-picture img,
     .div-bio {
         height: 18rem;
@@ -821,6 +960,10 @@ footer {
         top: 1rem;
         left: 5rem;
     }
+
+    .div-bio p{
+        font-size: 0.9rem;
+    }
 }
 
 /* Screen min 1024px and max 1224px */
@@ -835,6 +978,7 @@ footer {
         grid-column: 1/5;
     }
 
+    .div-picture-background,
     .div-picture img,
     .div-bio {
         height: 22rem;
@@ -857,6 +1001,7 @@ footer {
 
 /* Screen min 1224px */
 @media (min-width: 76.5rem) {
+    .div-picture-background,
     .div-picture img,
     .div-bio {
         height: 24rem;
