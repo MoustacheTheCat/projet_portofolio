@@ -229,7 +229,6 @@ main {
 .vue-arcticle {
     display: flex;
     justify-content: space-around;
-    /* align-items: center; */
     flex-flow: row wrap;
     background-color: #1fb1e6;
     opacity: .5;
