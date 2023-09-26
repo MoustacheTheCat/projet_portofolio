@@ -5,7 +5,6 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
     <title>CONTACT</title>
     <link rel="stylesheet"  href="../css/style.css" />
-  </head>
   <body>
     <div class="container">
       <header>
@@ -58,7 +57,7 @@
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam harum tenetur velit veniam modi, sed nisi reprehenderit doloremque aut obcaecati adipisci impedit accusamus dicta doloribus, ea autem quis quisquam. Itaque dignissimos excepturi aliquid dolorum reprehenderit non id mollitia aliquam, soluta minima inventore illo accusantium, pariatur modi corporis tempora molestiae error.</p>
         </div>
         <div class="div-form">
-          <form action="">
+          <form action="" method="post" id="form">
             <label for="last-name" class="label-name last">Nom :</label>
             <input type="text" name="last-name" id="last-name" autofocus>
             <label for="first-name" class="label-name first">Prénom :</label>
@@ -69,7 +68,7 @@
             <input type="email" name="email" id="email">
             <label for="message" class="label-message">Votre message :</label>
             <textarea id="message" cols="30" rows="10"></textarea>
-            <input type="submit" value="Envoyer" id="send">
+            <input type="submit" name="submit" value="Envoyer" id="send">
           </form>
         </div>
       </main>
@@ -131,5 +130,27 @@
         </div>
       </footer>
     </div>
-  </body>
 </html>
+
+<?php
+if(isset($_POST['submit'])){
+    $to = "joubert.mathieu753783@gmail.com"; 
+    $from = $_POST['email']; 
+    $first_name = $_POST['first-name']; 
+    $last_name = $_POST['last-name'];   
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $first_name . " " . $last_name . " ". $_POST['number'] . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    // Vous pouvez également utiliser header('Location: thank_you.php'); pour rediriger vers une autre page.
+}
+?>
+
+
+

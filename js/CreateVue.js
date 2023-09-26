@@ -13,7 +13,7 @@ function createVue (){
     let pictureLink = document.createElement('a');
     pictureLink.setAttribute('href', '#');
     let picture = document.createElement('img');
-    picture.setAttribute('src', urlImg+'projet.jpg');
+    picture.setAttribute('src', urlImg+'projet-1.jpg');
     picture.setAttribute('alt', 'photo du projet');
     pictureLink.appendChild(picture);
     divPicture.appendChild(pictureLink);
