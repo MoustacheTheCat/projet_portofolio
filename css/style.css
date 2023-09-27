@@ -788,6 +788,11 @@ footer {
         width: 24rem;
     }
 
+    .div-about {
+        width: 80%;
+        height: 80%;
+    }
+
 } 
 
 /* Screen max 768px */
@@ -902,10 +907,15 @@ footer {
         grid-column: 1/3;
     }
 
+    .div-about {
+        width: 70%;
+        height: 70%;
+    }
+
     .picture,
     .bio{
         grid-row: 2/3;
-        height: 90%;
+        height: 70%;
         width: 80%;
     }
 
@@ -919,8 +929,8 @@ footer {
     }
 
     .div-picture img {
-        height: 75%;
-        width: 75%;
+        height: 70%;
+        width: 70%;
     }
 
     .div-bio p {
@@ -940,6 +950,11 @@ footer {
     
     .list-comp {
         width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 6rem;
     }
 
     .div-title {
