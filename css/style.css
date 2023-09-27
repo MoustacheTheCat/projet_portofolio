@@ -253,18 +253,28 @@ html [type=button],
 [type=reset],
 [type=submit] {
   -webkit-appearance: button; /* 2 */
+  appearance: button;
 }
 
 button,
 [type=button],
 [type=reset],
 [type=submit] {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  -webkit-appearance: button;
+  appearance: button;
+}
   /**
    * Remove the inner border and padding in Firefox.
    */
   /**
    * Restore the focus styles unset by the previous rule.
    */
+body {
+  background-color: white;
 }
 button::-moz-focus-inner,
 [type=button]::-moz-focus-inner,
@@ -311,6 +321,7 @@ input {
  */
 [type=search] {
   -webkit-appearance: textfield; /* 1 */
+  appearance: textfield; /* Fix for compatibility */ 
   outline-offset: -2px; /* 2 */
   /**
    * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
