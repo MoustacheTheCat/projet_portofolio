@@ -156,7 +156,7 @@ main {
 }
 
 .div-home-img {
-  background-image: url(../../img/picture/home-page.jpg);
+  background-image: url(../img/picture/home-page.jpg);
   background-repeat: no-repeat;
   background-position: center;
   position: static;
