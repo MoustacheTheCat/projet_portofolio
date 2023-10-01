@@ -1,0 +1,975 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  border: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Varialble------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/* ---- Width @mediaQuery ---- */
+/* ---- % ---- */
+/* ---- Color ---- */
+/* ---- Margin - Padding ---- */
+/* ---- Font - Size ---- */
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Font------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+@font-face {
+  font-family: "MartianMono Bold";
+  src: url(../font/MartianMono-Bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "MartianMono Regular";
+  src: url(../font/MartianMono-Regular.ttf);
+  font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6, label {
+  font-family: "MartianMono Bold";
+}
+
+p, a, li {
+  font-family: "MartianMono Regular";
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*--------------              --------              -------              --------------*/
+/*--------------  *********** -------  ***********  ------  ***********  --------------*/
+/*--------------  *           -------  *            ------  *            --------------*/
+/*--------------  *  ----------------  *  ----------------  *  ------------------------*/
+/*--------------  *  ----------------  *            ------  *            --------------*/
+/*--------------  *  ----------------  ***********  ------  ***********  --------------*/
+/*--------------  *  ----------------            *  ------            *  --------------*/
+/*--------------  *  --------------------------  *  ----------------  *  --------------*/
+/*--------------  *            ------            *  ------            *  --------------*/
+/*--------------  ***********  ------  ***********  ------  ***********  --------------*/
+/*--------------               ------               ------               --------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------CSS-Global------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.container {
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  width: 100%;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+}
+
+.group .front,
+.group .background {
+  grid-area: 1/1/2/2;
+}
+
+.front {
+  z-index: 2;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.front p {
+  color: #090979;
+}
+
+.background {
+  background-color: #1fb1e6;
+  opacity: 0.5;
+  z-index: 0;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #1fb1e6;
+  height: 5rem;
+}
+
+main {
+  grid-row: 2/3;
+}
+
+.div-title {
+  text-align: center;
+}
+
+.div-title h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  color: #1fb1e6;
+  padding: 1.5rem 1rem;
+}
+
+footer {
+  grid-row: 3/4;
+  background-color: #1fb1e6;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Header----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.div-logo-perso {
+  display: block;
+}
+
+.logo-perso {
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.logo-perso:hover {
+  cursor: pointer;
+  opacity: 10;
+  transition: 0.5s ease;
+}
+
+.div-logo-perso p {
+  color: aliceblue;
+}
+
+.div-nav input[type=checkbox]#nav-check {
+  display: none;
+}
+
+#menu-nav ul li a:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  color: #020024;
+  transition: 0.5s ease;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Home------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.main-home {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+}
+
+.div-home-img {
+  background-image: url(../img/picture/home-page.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: static;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: 1/1/2/2;
+}
+
+.div-home-img h1 {
+  color: aliceblue;
+  font-size: 2.5rem;
+  text-shadow: 0.2rem 0.2rem #1fb1e6;
+}
+
+.div-home-citation {
+  grid-area: 2/1/3/2;
+  justify-self: center;
+  width: 90%;
+  padding: 1rem 0;
+}
+
+.div-citation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.div-citation p {
+  font-size: 0.8rem;
+  padding: 1rem;
+}
+
+.div-citation #citation {
+  font-style: italic;
+  text-align: center;
+}
+
+.div-citation #auteur {
+  font-style: italic;
+  text-align: end;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------About-----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.main-about {
+  color: #1fb1e6;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, auto);
+  align-items: center;
+  justify-self: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.picture {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.bio {
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+
+.competance {
+  grid-row: 4/5;
+  grid-column: 1/2;
+}
+
+.div-about {
+  width: 90%;
+  height: auto;
+  padding: 1rem 0;
+}
+
+.div-bio,
+.div-comp,
+.div-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.div-picture img {
+  width: 80%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.div-bio,
+.div-comp {
+  text-align: justify;
+  color: #020024;
+}
+
+.div-bio h2,
+.div-comp h2 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+}
+
+.div-bio p {
+  font-size: 0.7rem;
+}
+
+#link-cont,
+#link-rea {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #020024;
+}
+
+#link-cont:hover,
+#link-rea:hover {
+  background: aliceblue;
+  transition: 0.4s ease;
+}
+
+.list-comp {
+  width: 100%;
+}
+
+.list-comp ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-comp ul li {
+  color: #020024;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.progresse-bar-border {
+  border: 0.1rem solid aliceblue;
+  width: 100%;
+  height: 0.8rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  margin: 0.5rem;
+}
+
+.progresse-bar {
+  height: 0.8rem;
+  background-color: #1fb1e6;
+  border-radius: 0.3rem;
+  z-index: 0;
+}
+
+#html {
+  width: 65%;
+}
+
+#js {
+  width: 60%;
+}
+
+#php {
+  width: 40%;
+}
+
+#sql {
+  width: 20%;
+}
+
+#git {
+  width: 50%;
+}
+
+#bootstrap {
+  width: 50%;
+}
+
+#react {
+  width: 45%;
+}
+
+#wordpress {
+  width: 45%;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*--------------              --------              -------              --------------*/
+/*--------------  *********** -------  ***********  ------  ***********  --------------*/
+/*--------------  *           -------  *            ------  *            --------------*/
+/*--------------  *  ----------------  *  ----------------  *  ------------------------*/
+/*--------------  *  ----------------  *            ------  *            --------------*/
+/*--------------  *  ----------------  ***********  ------  ***********  --------------*/
+/*--------------  *  ----------------            *  ------            *  --------------*/
+/*--------------  *  --------------------------  *  ----------------  *  --------------*/
+/*--------------  *            ------            *  ------            *  --------------*/
+/*--------------  ***********  ------  ***********  ------  ***********  --------------*/
+/*--------------               ------               ------               --------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Realisation-----------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.main-realisation {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  align-content: center;
+  justify-self: center;
+}
+
+.vue-arcticle {
+  grid-area: 2/1/3/2;
+}
+
+.div-realisation-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 1rem;
+  width: 90%;
+}
+
+.overlay-image {
+  width: 80%;
+  height: auto;
+  text-align: center;
+  margin: 1rem 0;
+  background-color: aliceblue;
+  border-radius: 0.5rem;
+}
+
+.overlay-image a {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+}
+
+.overlay-image .image {
+  grid-area: 2/1/3/2;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  border-radius: 0.5rem;
+}
+
+.overlay-image .normal,
+.overlay-image .hover {
+  grid-area: 1/1/2/2;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-image .normal .text,
+.overlay-image .hover .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-image .text h2 {
+  font-size: 1.5rem;
+  color: #1fb1e6;
+}
+
+.overlay-image .hover {
+  visibility: hidden;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Vue-------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.main-vue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.div-picture-vue,
+.div-description-vue {
+  width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+.div-vue-section p {
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Contact---------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.main-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact,
+.div-contact-form {
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.contact .div-description p {
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.div-form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(11, auto);
+  padding: 1rem;
+}
+
+.div-form form label {
+  color: #090979;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.div-form form label {
+  text-align: center;
+}
+
+.div-form form input, .div-form form textarea {
+  justify-self: center;
+}
+
+#send {
+  justify-self: center;
+  padding: 0.5rem;
+  margin: 1.5rem 1rem 2rem 1rem;
+  font-family: "MartianMono Bold";
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/*---------------------------------------Footer----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+.logo-footer h2 {
+  color: aliceblue;
+}
+
+.logo-footer, .logo-footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-footer {
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.logo-footer h2 {
+  font-size: 1.2rem;
+}
+
+.logo-footer ul {
+  flex-direction: row;
+}
+
+.logo-footer ul li {
+  margin: 0.5rem;
+}
+
+#logo-linkedin svg, #logo-github svg {
+  stroke: aliceblue;
+  fill: aliceblue;
+}
+
+#logo-github svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+#logo-linkedin svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+#logo-linkedin svg:hover, #logo-github svg:hover {
+  stroke: #020024;
+  fill: #020024;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*--------------              --------              -------              --------------*/
+/*--------------  *********** -------  ***********  ------  ***********  --------------*/
+/*--------------  *           -------  *            ------  *            --------------*/
+/*--------------  *  ----------------  *  ----------------  *  ------------------------*/
+/*--------------  *  ----------------  *            ------  *            --------------*/
+/*--------------  *  ----------------  ***********  ------  ***********  --------------*/
+/*--------------  *  ----------------            *  ------            *  --------------*/
+/*--------------  *  --------------------------  *  ----------------  *  --------------*/
+/*--------------  *            ------            *  ------            *  --------------*/
+/*--------------  ***********  ------  ***********  ------  ***********  --------------*/
+/*--------------               ------               ------               --------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/*-------------------------------------MediaQuery--------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
+/* Screen max 320px */
+@media (max-width: 20rem) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/2;
+  }
+  .div-home-img {
+    height: 20rem;
+  }
+}
+/* Screen min 320px and max 480px */
+@media (min-width: 20rem) and (max-width: 30rem) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/2;
+  }
+  .div-home-img {
+    height: 20rem;
+  }
+}
+/* Screen min 480px */
+@media (min-width: 30rem) {
+  .div-form form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(8, auto);
+  }
+  .label-name {
+    grid-row: 1/2;
+  }
+  .label-info {
+    grid-row: 3/4;
+  }
+  .div-form form {
+    padding: 0 2rem;
+  }
+  .div-form form .label-info,
+  .div-form form .label-name {
+    justify-self: start;
+  }
+  .div-form form .label-info,
+  .div-form form .label-name {
+    margin-top: 1.5rem;
+  }
+  .div-form form input {
+    margin-bottom: 1.5rem;
+    justify-self: stretch;
+  }
+  .div-form .label-message {
+    margin: 1.5rem;
+  }
+  .div-form form #message {
+    grid-row: 6/7;
+    grid-column: 1/3;
+    justify-self: stretch;
+  }
+  #send-copie-label {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  #send {
+    grid-row: 8/9;
+  }
+  .label-message,
+  #message,
+  #send {
+    justify-self: center;
+    grid-column: 1/3;
+  }
+}
+/* Screen min 480px */
+@media (min-width: 30rem) {
+  #send-copie {
+    margin: 1rem auto;
+    grid-column: 1/2;
+    grid-row: 7/8;
+  }
+}
+/* Screen min 480px and max 768px */
+@media (min-width: 30rem) and (max-width: 48rem) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/3;
+  }
+  .div-home-img {
+    height: 32rem;
+  }
+  .div-realisation-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Screen max 768px */
+@media (max-width: 48rem) {
+  .nav-menu {
+    padding: 0;
+  }
+  #menu-nav ul {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 5rem;
+    height: auto;
+    max-height: 0%;
+    overflow: hidden;
+    transition: max-height 1s;
+    z-index: 2;
+  }
+  #menu-nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    color: aliceblue;
+    background: #1fb1e6;
+    text-align: center;
+    text-decoration: none;
+  }
+  /*-------------------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------------------*/
+  /*--------------              --------              -------              --------------*/
+  /*--------------  *********** -------  ***********  ------  ***********  --------------*/
+  /*--------------  *           -------  *            ------  *            --------------*/
+  /*--------------  *  ----------------  *  ----------------  *  ------------------------*/
+  /*--------------  *  ----------------  *            ------  *            --------------*/
+  /*--------------  *  ----------------  ***********  ------  ***********  --------------*/
+  /*--------------  *  ----------------            *  ------            *  --------------*/
+  /*--------------  *  --------------------------  *  ----------------  *  --------------*/
+  /*--------------  *            ------            *  ------            *  --------------*/
+  /*--------------  ***********  ------  ***********  ------  ***********  --------------*/
+  /*--------------               ------               ------               --------------*/
+  /*-------------------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------------------*/
+  #togle-logo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    color: aliceblue;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #togle-logo span {
+    display: block;
+    /* z-index: 2; */
+    width: 1.5rem;
+    height: 0.2rem;
+    background-color: aliceblue;
+    margin: 0.32rem 0;
+    transition: 1s;
+  }
+  .div-nav input[type=checkbox]#nav-check:checked ~ label #sp-1 {
+    transform: rotate(-45deg) translate(-0.25rem, 0.5rem);
+  }
+  .div-nav input[type=checkbox]#nav-check:checked ~ label #sp-2 {
+    opacity: 0;
+  }
+  .div-nav input[type=checkbox]#nav-check:checked ~ label #sp-3 {
+    transform: rotate(45deg) translate(-0.25rem, -0.5rem);
+  }
+  .div-nav input[type=checkbox]#nav-check:checked ~ label {
+    padding: 0.5rem 0.5rem 0.5rem 0.2rem;
+  }
+  .div-nav input[type=checkbox]:checked ~ #menu-nav ul {
+    overflow: visible;
+    height: 100%;
+    max-height: 100%;
+    transition: max-height 1s;
+    z-index: 10;
+  }
+}
+/* Screen min 768px */
+@media (min-width: 48rem) {
+  .div-title h1 {
+    font-size: 4rem;
+  }
+  .div-home-img {
+    height: 40rem;
+  }
+  .div-home-citation {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    margin-left: 6rem;
+    margin-right: 6rem;
+    grid-gap: 4rem;
+  }
+  .div-title,
+  .competance {
+    grid-column: 1/3;
+  }
+  .picture,
+  .bio {
+    grid-row: 2/3;
+  }
+  .picture {
+    grid-column: 1/2;
+  }
+  .bio {
+    grid-column: 2/3;
+  }
+  .div-bio p a {
+    font-size: 0.6rem;
+  }
+  .competance {
+    grid-row: 3/4;
+  }
+  .list-comp {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .div-title {
+    grid-row: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .div-bio h2,
+  .div-comp h2 {
+    font-size: 1rem;
+  }
+  .list-comp ul li p {
+    font-size: 1rem;
+  }
+  .list-comp ul {
+    padding-left: 0;
+    padding-bottom: 1rem;
+    width: 40%;
+  }
+  .div-form {
+    margin-bottom: 5rem;
+  }
+  .div-nav {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  #menu-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-nav ul li a {
+    padding: 1rem;
+    color: aliceblue;
+  }
+  .overlay-image .hover {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+  .overlay-image:hover .hover {
+    opacity: 1;
+  }
+  .overlay-image .normal {
+    transition: 0.5s ease;
+  }
+  .overlay-image:hover .normal {
+    opacity: 0;
+  }
+  .overlay-image .text h2,
+  .overlay-image .text p {
+    color: #1fb1e6;
+    text-shadow: 2px 2px 2px #000;
+  }
+}
+/* Screen min 768px and max 1024px */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/4;
+  }
+  .div-realisation-section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/* Screen max 1024px */
+@media (max-width: 64rem) {
+  .div-logo-perso p {
+    display: none;
+  }
+}
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*--------------              --------              -------              --------------*/
+/*--------------  *********** -------  ***********  ------  ***********  --------------*/
+/*--------------  *           -------  *            ------  *            --------------*/
+/*--------------  *  ----------------  *  ----------------  *  ------------------------*/
+/*--------------  *  ----------------  *            ------  *            --------------*/
+/*--------------  *  ----------------  ***********  ------  ***********  --------------*/
+/*--------------  *  ----------------            *  ------            *  --------------*/
+/*--------------  *  --------------------------  *  ----------------  *  --------------*/
+/*--------------  *            ------            *  ------            *  --------------*/
+/*--------------  ***********  ------  ***********  ------  ***********  --------------*/
+/*--------------               ------               ------               --------------*/
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/* Screen min 1024px */
+@media (min-width: 64rem) {
+  .div-logo-perso p {
+    position: absolute;
+    top: 1rem;
+    left: 5rem;
+  }
+  .div-bio p {
+    font-size: 1rem;
+    /* padding: 0 2.5rem 2.5rem 2.5rem;   */
+  }
+  .div-bio p a {
+    font-size: 0.9rem;
+  }
+  .div-realisation-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+/* Screen min 1024px and max 1224px */
+@media (min-width: 64rem) and (max-width: 76.5rem) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/5;
+  }
+}
+/* Screen min 1224px and max 1824px */
+@media (min-width: 76.5rem) and (max-width: 114rem) {
+  .container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/6;
+  }
+}
+/* Screen min 1824px */
+@media (min-width: 114rem) {
+  .container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  header,
+  main,
+  footer {
+    grid-column: 1/7;
+  }
+}/*# sourceMappingURL=main.css.map */
